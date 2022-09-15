@@ -188,3 +188,12 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+#loginFormulario {
+  margin: auto;
+  text-align: center;
+  width: 50%;
+}
+.caja-login {
+  margin: 10px;
+}

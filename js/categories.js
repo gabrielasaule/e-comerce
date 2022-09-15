@@ -40,12 +40,6 @@ function setCatID(id) {
     window.location = "products.html"
 }
 
-//pruebas
-function setProdID(id) {
-    localStorage.setItem("prodID", id);
-    window.location = "products-info.html"
-}
-
 function showCategoriesList(){
 
     let htmlContentToAppend = "";

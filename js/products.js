@@ -23,7 +23,7 @@ function mostrarListaProductos(){
         if (((minPrice == undefined) || (minPrice != undefined && parseInt(prodActual.cost) >= minPrice)) &&
         ((maxPrice == undefined) || (maxPrice != undefined && parseInt(prodActual.cost) <= maxPrice))){
         contenidoHTML += `
-            <div  class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setProdID(${prodActual.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${prodActual.image}" alt="${prodActual.description}" class="img-thumbnail">
@@ -41,7 +41,7 @@ function mostrarListaProductos(){
         }
     }
     //ver arriba
-    //<div onclick="setProdID(${prodActual.id})" class="list-group-item list-group-item-action cursor-active">
+    //<div onclick="setProdID(${prodActual.id})" class="list-group-item list-group-item-action cursor-active"> //ahora que necesito guardar el id cuando hace clic en un producto, le agrego el evento onclick en el html
     document.getElementById("contenidoProd").innerHTML = contenidoHTML;
     document.getElementById("tituloCat").innerHTML = "Verás aquí todos los productos de la categoria " + listaProductos.catName;
 }
@@ -125,4 +125,9 @@ document.addEventListener("DOMContentLoaded", function(){ //funcion anonima
         mostrarListaProductos();
     });
 })
+
+function setProdID(id) {
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html"
+}
 

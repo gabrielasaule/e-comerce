@@ -9,7 +9,6 @@ let maxPrice = undefined;
 let catSeleccionada = localStorage.getItem("catID");
 let url_seleccionada = PRODUCTS_URL + catSeleccionada + EXT_TYPE;
 
-console.log(catSeleccionada);
 
 //funcion para mostrar la info de productos
 function mostrarListaProductos(){

@@ -197,3 +197,9 @@ a.custom-card:hover {
 .caja-login {
   margin: 10px;
 }
+#caja-coment {
+  margin-top: 30px;
+}
+.checked {
+  color: orange;
+}

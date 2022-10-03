@@ -67,6 +67,22 @@ function mostrarComentario(){
     };
 };
 
+//muestro los productos relacionados 
+function mostrarProdRelac(){
+    let contenidoHTML ="";
+    for (const prodRel of prod.relatedProducts) {
+        contenidoHTML += `
+            <div onclick="setProdID(${prodRel.id})" class="card" style="width: 18rem;">
+                <img class="card-img-top" src="${prodRel.image}" alt="${prodRel.name}">
+                <div class="card-body">
+                    <p class="card-text">${prodRel.name}</p>
+                </div>
+            </div>
+            `
+    }
+    
+    document.getElementById("fila-relac").innerHTML = contenidoHTML;
+}
 
 //obtengo los productos que necesito del JSON
 document.addEventListener("DOMContentLoaded", function(){ //funcion anonima
@@ -74,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function(){ //funcion anonima
         if(respuesta.status ==="ok"){
             prod = respuesta.data;
             mostrarProducto();
+            mostrarProdRelac();
         } else {
             alert("Ha ocurrido un error al obtener el producto seleccionado");
         }
@@ -88,3 +105,10 @@ document.addEventListener("DOMContentLoaded", function(){ //funcion anonima
         }
     });
 });
+
+//cuando cliqueo un producto, redirecciona al mismo
+//la func es igual  que en products
+function setProdID(id) {
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html"
+}

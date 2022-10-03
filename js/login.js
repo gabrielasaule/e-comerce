@@ -1,5 +1,7 @@
 let btn = document.getElementById("ingresarBtn");
 
+//si estoy en la pantalla de login o vuelvo a ella, entonces vacío el local storage
+localStorage.clear();
 btn.addEventListener("click", function(evento){
     let mail = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;

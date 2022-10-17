@@ -5,7 +5,6 @@ let url_comentarios = PRODUCT_INFO_COMMENTS_URL + prodSeleccionadoId + EXT_TYPE;
 let prod = undefined;
 
 function mostrarProducto(){
-    console.log("pasa por mostrar producto"); //debug
     let contenidoImag="";    
     let contenidoHTML= "";
     contenidoHTML += `
@@ -15,13 +14,13 @@ function mostrarProducto(){
         </div>
         <div class="row">
             <div class="col-6">
-                <h4 class="mb-1 fw-bold">Precio: </h4>
+                <h5 class="mb-1 fw-bold">Precio: </h5>
                 <p class="mb-1">    ${prod.currency} ${prod.cost}</p>
-                <h4 class="mb-1 fw-bold">Descripción: </h4>
+                <h5 class="mb-1 fw-bold">Descripción: </h5>
                 <p class="mb-1">    ${prod.description}</p>
-                <h4 class="mb-1 fw-bold">Categoría: </h4>
+                <h5 class="mb-1 fw-bold">Categoría: </h5>
                 <p class="mb-1">    ${prod.category}</p>
-                <h4 class="mb-1 fw-bold">Cantidad de vendidos: </h4>
+                <h5 class="mb-1 fw-bold">Cantidad de vendidos: </h5>
                 <p class="mb-1">    ${prod.soldCount}</p>
             </div > 
             <div class="col-6">

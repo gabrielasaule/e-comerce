@@ -65,54 +65,93 @@
         </div>
         <hr class="mb-2" />
       </div>
-      <div class="container">
+      <div class="container" id="container">
 
-        <div id="contenidoCart">
-        </div>
-        
-        <div class="row">
-          <hr class="mb-4" />
-          <h5 class="mb-3">Tipo de envío</h5>
-          <div class="d-block my-3">
-            <div class="custom-control custom-radio">
-              <input id="premradio" name="ShipppingType" type="radio" class="custom-control-input" checked="" required="">
-              <label class="custom-control-label" for="premradio">Premium 2 a 5 días(15%)</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input id="expradio" name="ShipppingType" type="radio" class="custom-control-input" required="">
-              <label class="custom-control-label" for="expradio">Express 5 a 8 días(7%)</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input id="stanradio" name="ShipppingType" type="radio" class="custom-control-input" required="">
-              <label class="custom-control-label" for="standradio">Standard 12 a 15 días (5%)</label>
-            </div>
+        <form action="#" method="get" class="row mt-4" id="formCart" novalidate>
+          <div id="contenidoCart">
           </div>
-        </div>
-        <div class="row">
-          <h5 class="mb-3">Dirección de envío</h5>
+
           <div class="row">
-            <div class="col-md-6 mb-3 ">
-              <label for="street">Calle</label>
-              <input type="text" class="form-control" id="street" value="" name="street">
-            </div>
-            <div class="col-md-5 mb-3 ">
-              <label for="number">Número</label>
-              <input type="text" class="form-control" id="number" value="" name="number">
+            <hr class="mb-4" />
+            <h5 class="mb-3">Tipo de envío</h5>
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="premradio" name="ShipppingType" type="radio" class="custom-control-input" checked=""
+                  required="">
+                <label class="custom-control-label" for="premradio">Premium 2 a 5 días(15%)</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="expradio" name="ShipppingType" type="radio" class="custom-control-input" required="">
+                <label class="custom-control-label" for="expradio">Express 5 a 8 días(7%)</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="stanradio" name="ShipppingType" type="radio" class="custom-control-input" required="">
+                <label class="custom-control-label" for="standradio">Standard 12 a 15 días (5%)</label>
+              </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6 mb-3 ">
-              <label for="corner">Esquina</label>
-              <input type="text" class="form-control" id="corner" value="" name="corner">
+            <h5 class="mb-3">Dirección de envío</h5>
+            <div class="row">
+              <div class="col-md-6 mb-3 ">
+                <label for="street">Calle</label>
+                <input type="text" class="form-control" id="street" value="" name="street" required>
+              </div>
+              <div class="col-md-5 mb-3 ">
+                <label for="number">Número</label>
+                <input type="text" class="form-control" id="number" value="" name="number" required>
+              </div>
             </div>
-            <div class="col-md-5 mb-3 ">
-              <label for="apart">Apartamento</label>
-              <input type="text" class="form-control" id="apart" value="" name="apart">
+            <div class="row">
+              <div class="col-md-6 mb-3 ">
+                <label for="corner">Esquina</label>
+                <input type="text" class="form-control" id="corner" value="" name="corner" required>
+              </div>
+              <div class="col-md-5 mb-3 ">
+                <label for="apart">Apartamento</label>
+                <input type="text" class="form-control" id="apart" value="" name="apart">
+              </div>
             </div>
           </div>
-        </div>
+          <div class="row">
+            <h5 class="mb-3">Costos</h5>
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <p>Subtotal (USD)</p>
+                  <p>Costo unitario del producto por cantidad</p>
+                </div>
+                <span class="text-muted" id="costoSubtotal">-</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <p>Costo de envío (USD)</p>
+                  <p>Según el tipo de envío</p>
+                </div>
+                <span class="text-muted" id="costoEnvio">-</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <p>Total (USD)</p>
+                <span class="" id="costoTotal">-</span>
+              </li>
+            </ul>
+            <hr class="mb-4" />
+          </div>
+          <div class="row">
+            <h5 class="mb-3">Forma de pago</h5>
+            <div class="d-flex">
+              <p id="formaPagoTexto"></p>
+              <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
+                data-bs-target="#modalFormaPago">Seleccionar</button>
+            </div>
+          </div>
+          <div class="row">
+            <button type="submit" id="confirmPurchase" class="btn btn-primary">Finalizar compra</button>
+          </div>
+        </form>
       </div>
     </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -130,6 +169,56 @@
       <div></div>
       <div></div>
       <div></div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalFormaPago" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Forma de pago</h1>
+        </div>
+        <div class="modal-body">
+          <div class="custom-control custom-radio">
+            <input id="credito" name="formaDePago" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="credito">
+              <h6 class="mb-3">Tarjeta de crédito</h6>
+            </label>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3 ">
+              <label for="nrotarj">Número de tarjeta</label>
+              <input type="text" class="form-control" id="nrotarj" value="" name="nrotarj" required>
+            </div>
+            <div class="col-md-5 mb-3 ">
+              <label for="codseguridad">Código de seguridad</label>
+              <input type="text" class="form-control" id="codseguridad" value="" name="codseguridad">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3 ">
+              <label for="vencimiento">Fecha de vencimiento</label>
+              <input type="text" class="form-control" id="vencimiento" value="" name="vencimiento">
+            </div>
+          </div>
+          <hr class="mb-4" />
+          <div class="custom-control custom-radio">
+            <input id="transferencia" name="formaDePago" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="transferencia">
+              <h6 class="mb-3">Transferencia bancaria</h6>
+            </label>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3 ">
+              <label for="nroCuenta">Número de cuenta</label>
+              <input type="text" class="form-control" id="nroCuenta" value="" name="nroCuenta">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cerrarFormaPago" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
     </div>
   </div>
   <script src="js/bootstrap.bundle.min.js"></script>
